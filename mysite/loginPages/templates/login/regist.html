@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>registPage</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <label>the UserId:</label>
+        <input type="text" name="userId"/>
+        <label>the Username:</label>
+        <input type="text" name="username"/>
+        <label>the userpassword</label>
+        <input type="password" name="userpassword"/>
+        <input id="sendButton" type="submit" value="regist"/>
+    </form>
+</body>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js"></script>
+<script>
+    $(document).ready(function(){
+		$("#sendButton").click(function(){
+			$.ajax({
+			    url:"http://127.0.0.1:8000/user/4124860/materials",
+			    type:"get",
+			    data:{"str": "4124", "userpassword":"980827", "username": "zj"},
+			    dataType: "json",
+			    success:function(data){
+			       alert(data.state)
+			    }
+			  });
+		});
+	});
+</script>
+</html>
