@@ -3,10 +3,10 @@
 
 .idea
 
-mysite/settings.py
-
 db.sqlite3
 
 mysite/__pycache__/
 
+venv
 
+*.pyc
