@@ -21,9 +21,9 @@
     $(document).ready(function(){
 		$("#sendButton").click(function(){
 			$.ajax({
-			    url:"http://127.0.0.1:8000/user/4124860/materials",
+			    url:"http://127.0.0.1:8000/login/regist/",
 			    type:"get",
-			    data:{"str": "4124", "userpassword":"980827", "username": "zj"},
+			    data:{"userId": "4124860", "userpassword":"980827", "username": "zj"},
 			    dataType: "json",
 			    success:function(data){
 			       alert(data.state)
