@@ -41,7 +41,10 @@ def personal_materials_recommend(request):
     keywords = extractor.getKeywords_tfidf()
     baiduspider = baidubaikespider(keywords)
     keywordsInfo = baiduspider.getinfomation()
-    print(keywordsInfo)
-    return JsonResponse(keywordsInfo)
+    #print(keywordsInfo)
+    result = {}
+    result["result"] = keywordsInfo
+    print(result)
+    return JsonResponse(result)
 
 

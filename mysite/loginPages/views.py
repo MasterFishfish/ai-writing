@@ -118,8 +118,14 @@ def do_logout(request):
     if request.method == 'POST':
         userId = request.POST.get('userId','')
     print(request.session.get('userId', userId))
-    del request.session["userId"]
-    return HttpResponse('logout OK')
+    try:
+        del request.session["userId"]
+        state = "1"
+    except:
+        state = "0"
+    theInfo = {}
+    theInfo["state"] = state
+    return JsonResponse(theInfo)
 
 def login_results(request):
     return render(request, 'login/login_result.html', {'theUser': "AAA"})

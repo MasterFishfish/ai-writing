@@ -28,7 +28,7 @@ class baidubaikespider():
             response = requests.get(url, headers=headers)
             response.encoding = 'UTF-8'
             if response.status_code == 200 or response.status_code == 302:
-                return response.text
+                return response.text, response.url
             else:
                 return None
         except:
@@ -53,12 +53,16 @@ class baidubaikespider():
         return summaryStrings
 
     def getinfomation(self):
-        result = {}
+        result = []
         for keyword in self.__keywords:
+            thisword = {}
             url = self.__urls + keyword
-            htmltext = self.get_one_page(url)
+            htmltext, thisurl = self.get_one_page(url)
             keywordInfo = self.parse_one_page(htmltext)
-            result[keyword] = keywordInfo
+            thisword["keyword"] = keyword
+            thisword["str"] = keywordInfo
+            thisword["url"] = thisurl
+            result.append(thisword)
         return result
 
 
