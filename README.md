@@ -26,17 +26,17 @@ python3 manage.py runserver
 + POST 	 {"userId": "xxxxxxx", "userpassword":"xxxxxx"}
 + url :  http://xxx.xxxx.xxx/login/do_login
 
-server返回json格式信息:	 
+	erver返回json格式信息:	 
 
-+ 登录成功:	{"state": "1"}
+	 登录成功:	{"state": "1"}
 + 登录失败:      {"state": "0"}
 
 ##### 登出
 
 发出登出请求: 
 
-+ http://xxx.xxxx.xxx/login/
-+ POST 	 {"userId": "xxxxxxx"}
++ http://xxx.xxxx.xxx/login/do_login
+	 POST 	 {"userId": "xxxxxxx"}
 
 server返回的json格式信息:
 
