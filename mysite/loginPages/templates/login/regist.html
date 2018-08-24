@@ -5,23 +5,14 @@
     <title>registPage</title>
 </head>
 <body>
-    <form method="post">
-        {% csrf_token %}
-        <label>the UserId:</label>
-        <input type="text" name="userId"/>
-        <label>the Username:</label>
-        <input type="text" name="username"/>
-        <label>the userpassword</label>
-        <input type="password" name="userpassword"/>
-        <input id="sendButton" type="submit" value="regist"/>
-    </form>
+    <input id="sendButton" type="submit" value="regist"/>
 </body>
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js"></script>
 <script>
     $(document).ready(function(){
 		$("#sendButton").click(function(){
 			$.ajax({
-			    url:"http://127.0.0.1:8000/login/regist/",
+			    url:"http://127.0.0.1:8000/login/do_regist/",
 			    type:"get",
 			    data:{"userId": "4124860", "userpassword":"980827", "username": "zj"},
 			    dataType: "json",

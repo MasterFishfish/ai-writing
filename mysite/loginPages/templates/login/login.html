@@ -5,14 +5,7 @@
     <title>login</title>
 </head>
 <body>
-    <form id="theform" method="post">
-        {% csrf_token %}
-        <label>userId:</label>
-        <input type="text" name="userId"/>
-        <label>password:</label>
-        <input type="password" name="userpassword"/>
-        <input id="sendButton" type="submit" value="login">
-    </form>
+    <input id="sendButton" type="submit" value="login">
     <button id="outbutton">logout</button>
     <p id="result"></p>
 </body>

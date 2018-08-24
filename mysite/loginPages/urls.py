@@ -8,5 +8,6 @@ urlpatterns = [
     path('do_login/', views.do_login, name="do_login"),
     path('regist/', views.regist, name="regist"),
     path('do_regist/', views.do_regist, name="do_regist"),
+    path('do_logout/', views.do_logout, name="do_logout")
     #path('<int:choice_id>/', views.detail, name='detail'),
 ]

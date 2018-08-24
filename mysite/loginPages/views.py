@@ -66,7 +66,6 @@ def do_login(request):
         theUser = None
         userInfo = None
         loginlogger.info('%s logining failed' % userId)
-        return redirect("/regist/")
     if theUser is not None:
         if password == theUser.user_password:
             state = 1
