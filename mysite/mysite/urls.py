@@ -15,9 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url, include
+from rest_framework.authtoken import views
+from user.views import Register
+from user.views import Beta
+from algorithm.views import search_keyword
 
 urlpatterns = [
-    path('login/', include('loginPages.urls')),
-    path('user/', include('personalpage.urls')),
     path('admin/', admin.site.urls),
+    url(r'^auth/', views.obtain_auth_token),
+    url(r'^me/', include('user.urls')),
+    url(r'^register/', Register.as_view()),
+    url(r'^beta/', Beta.as_view()),
+    path('algorithm/', include('algorithm.urls'))
 ]

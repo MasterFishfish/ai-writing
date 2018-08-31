@@ -28,6 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'user.User'
+
 
 # Application definition
 
@@ -37,9 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'rest_framework',
+    'rest_framework.authtoken',
     'django.contrib.staticfiles',
-    'loginPages.apps.LoginpagesConfig',
-    'personalpage.apps.PersonalpageConfig',
+    'user.apps.UserConfig',
 ]
 
 MIDDLEWARE = [
