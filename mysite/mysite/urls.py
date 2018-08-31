@@ -19,7 +19,6 @@ from django.conf.urls import url, include
 from rest_framework.authtoken import views
 from user.views import Register
 from user.views import Beta
-from algorithm.views import search_keyword
 
 urlpatterns = [
     path('admin/', admin.site.urls),

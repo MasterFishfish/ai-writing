@@ -11,29 +11,29 @@ from algorithm.keyextract.keyextract import keysextract
 from algorithm.spider.baikeSpider import baidubaikespider
 from undefined.helpers import JSONResponse, InputErrorMessage
 
-
-def search_keyword(request):
-    strs = ""
-    if request.method  == 'GET':
-        strs = request.GET.get('str', '')
-        strs = parse.unquote(strs)
-        print(strs)
-    if request.method == 'POST':
-        strs = request.POST.get('str', '')
-        strs = parse.unquote(strs)
-        print(strs)
-    extractor = keysextract(strs, 3)
-    keywords = extractor.getKeywords_tfidf()
-    baiduspider = baidubaikespider(keywords)
-    keywordsInfo = baiduspider.getinfomation()
-    #print(keywordsInfo)
-    result = {}
-    result["result"] = keywordsInfo
-    print(result)
-    return JSONResponse(result)
+#
+# def search_keyword(request):
+#     strs = ""
+#     if request.method  == 'GET':
+#         strs = request.GET.get('str', '')
+#         strs = parse.unquote(strs)
+#         print(strs)
+#     if request.method == 'POST':
+#         strs = request.POST.get('str', '')
+#         strs = parse.unquote(strs)
+#         print(strs)
+#     extractor = keysextract(strs, 3)
+#     keywords = extractor.getKeywords_tfidf()
+#     baiduspider = baidubaikespider(keywords)
+#     keywordsInfo = baiduspider.getinfomation()
+#     #print(keywordsInfo)
+#     result = {}
+#     result["result"] = keywordsInfo
+#     print(result)
+#     return JSONResponse(result)
 
 class Search_keyword(APIView):
-    def post(self):
+    def post(self, request):
         try:
             data = json.loads(request.body.decode('utf-8'))
         except json.JSONDecodeError:
