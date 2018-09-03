@@ -49,7 +49,8 @@ class baidubaikespider():
             for result in results:
                 summaryStrings = summaryStrings.replace(result, "")
         print(summaryStrings)
-        return summaryStrings
+        summary = (summaryStrings.split("。"))[0]
+        return summary, summaryStrings
 
     def getinfomation(self):
         result = []
@@ -57,9 +58,10 @@ class baidubaikespider():
             thisword = {}
             url = self.__urls + keyword
             htmltext, thisurl = self.get_one_page(url)
-            keywordInfo = self.parse_one_page(htmltext)
-            thisword["keyword"] = keyword
-            thisword["str"] = keywordInfo
-            thisword["url"] = thisurl
+            summary, keywordInfo = self.parse_one_page(htmltext)
+            thisword["title"] = keyword
+            thisword["fullText"] = keywordInfo
+            thisword["website"] = thisurl
+            thisword["summary"] = summary
             result.append(thisword)
         return result
